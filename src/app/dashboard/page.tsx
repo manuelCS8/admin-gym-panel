@@ -18,7 +18,7 @@ export default function DashboardPage() {
     totalExercises: 0,
     pendingUsers: 0
   });
-  // const [loading, setLoading] = useState(true); // Comentado porque no se usa
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {

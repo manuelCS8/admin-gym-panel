@@ -28,7 +28,7 @@ export default function PendingUsersPage() {
         id: doc.id, // El ID es el email
         email: doc.id, // El email es el ID del documento
         ...doc.data() 
-      } as User));
+      } as any));
       setPendingUsers(usersData);
     } catch (error) {
       console.error('Error loading pending users:', error);
@@ -44,14 +44,12 @@ export default function PendingUsersPage() {
         uid: user.email, // Usar email como UID temporal
         email: user.email,
         displayName: user.displayName,
-        age: user.age,
         role: user.role,
         registrationStatus: 'COMPLETED',
         isActive: true,
         membershipType: user.membershipType || 'basic',
-        membershipStart: user.membershipStart,
-        membershipEnd: user.membershipEnd,
-        createdAt: user.createdAt,
+        membershipEnd: user.membershipEnd || new Date(),
+        createdAt: user.createdAt || new Date(),
         updatedAt: new Date()
       });
 
@@ -174,7 +172,7 @@ export default function PendingUsersPage() {
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
                     {pendingUsers.map((user) => (
-                      <tr key={user.id} className="hover:bg-gray-50">
+                      <tr key={user.uid || user.email} className="hover:bg-gray-50">
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="flex-shrink-0 h-10 w-10">
@@ -206,7 +204,7 @@ export default function PendingUsersPage() {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900">
-                            {user.createdAt ? new Date(user.createdAt.toDate()).toLocaleDateString() : 'N/A'}
+                            {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A'}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

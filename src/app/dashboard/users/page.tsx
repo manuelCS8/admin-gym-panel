@@ -33,7 +33,7 @@ export default function UsersPage() {
         id: doc.id,
         uid: doc.id, // El ID del documento es el UID
         ...doc.data() 
-      } as User));
+      } as any));
       setUsers(usersData);
     } catch (error) {
       console.error('Error loading users:', error);
