@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import DashboardLayout from '@/components/DashboardLayout';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { User, GymRoutine, Exercise } from '@/types';
 import Link from 'next/link';
@@ -18,7 +18,7 @@ export default function DashboardPage() {
     totalExercises: 0,
     pendingUsers: 0
   });
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true); // Comentado porque no se usa
   const router = useRouter();
 
   useEffect(() => {

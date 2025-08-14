@@ -25,7 +25,7 @@ export default function RoutinesPage() {
     isActive: true,
     isPublic: true
   });
-  const router = useRouter();
+  // const router = useRouter(); // Comentado porque no se usa
 
   useEffect(() => {
     loadData();

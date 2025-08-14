@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import DashboardLayout from '@/components/DashboardLayout';
 import { collection, getDocs, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '@/lib/firebase';
 import { Exercise } from '@/types';
 
@@ -32,7 +32,7 @@ export default function ExercisesPage() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const router = useRouter();
+  // const router = useRouter(); // Comentado porque no se usa
 
   useEffect(() => {
     loadExercises();
@@ -127,7 +127,7 @@ export default function ExercisesPage() {
         fileInputRef.current.value = '';
       }
       await loadExercises();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating exercise:', error);
       alert('Error al crear el ejercicio. Por favor, intenta de nuevo.');
     } finally {
@@ -165,7 +165,7 @@ export default function ExercisesPage() {
         fileInputRef.current.value = '';
       }
       await loadExercises();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating exercise:', error);
       alert('Error al actualizar el ejercicio. Por favor, intenta de nuevo.');
     } finally {
@@ -178,7 +178,7 @@ export default function ExercisesPage() {
       try {
         await deleteDoc(doc(db, 'exercises', exerciseId));
         await loadExercises();
-      } catch (error: any) {
+      } catch (error: unknown) {
         console.error('Error deleting exercise:', error);
       }
     }
