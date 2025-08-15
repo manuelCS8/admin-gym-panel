@@ -1,6 +1,13 @@
 # 🏋️ Admin Gym Panel - Iconik Pro
 
+[![Next.js](https://img.shields.io/badge/Next.js-15.4.6-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Firebase](https://img.shields.io/badge/Firebase-12.1.0-orange?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
+
 Panel de administración web para Iconik Pro Gym. Esta aplicación permite gestionar usuarios, rutinas y ejercicios desde cualquier navegador web.
+
+[🌐 Demo en Vercel](https://admin-gym-panel.vercel.app) | [📖 Documentación](https://github.com/manuelCS8/admin-gym-panel#readme)
 
 ## 🚀 Características
 
@@ -32,7 +39,7 @@ Panel de administración web para Iconik Pro Gym. Esta aplicación permite gesti
 
 1. **Clonar el proyecto**:
 ```bash
-git clone <repository-url>
+git clone https://github.com/manuelCS8/admin-gym-panel.git
 cd admin-gym-web
 ```
 
